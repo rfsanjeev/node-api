@@ -2,19 +2,17 @@ import mongoose from 'mongoose';
 
 mongoose.set('strictQuery', false);
 
-const mongoDB = (dbConfig) => {
-  const connectionString = `${dbConfig.server}://${dbConfig.host}/${dbConfig.dbName}?retryWrites=true&w=majority`;
-
+const mongoDB = (dbUrl) => {
   mongoose
-    .connect(connectionString, {
+    .connect(dbUrl, {
       useNewURLParser: true,
-      useUNifiedTopology: true
+      useUNifiedTopology: true,
     })
     .then(() => {
-      console.log('CONNECTION OPEN!');
+      console.log("CONNECTION OPEN!");
     })
     .catch((err) => {
-      console.log('CONNECTION ERROR!');
+      console.log("CONNECTION ERROR!");
       console.log(err);
     });
 };
