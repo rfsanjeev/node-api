@@ -1,11 +1,6 @@
-import eventSchema from '../schemas/event.js';
 import { saveEventModel, updateEventModel, deleteEventModel,
         getEventModel, getEventModelById } from '../models/event.js';
-import userSchema from '../schemas/user.js';
 import expressError from '../utils/expressError.js';
-import {createToken, verifyToken} from '../utils/jwt.js';
-import * as dotenv from 'dotenv';
-dotenv.config();
 
 const createEvent = async(req, res, next) => {
         await saveEventModel(req.body);
@@ -23,7 +18,7 @@ const deleteEvent = async(req, res, next) => {
         const deleteEvent = await deleteEventModel(req.params.id);
         if (!deleteEvent) throw new expressError('Invalid Event Data Provided')
 
-        res.status(200).json({mesage: 'Event Deleted successfully'}); 
+        res.status(200).json({message: 'Event Deleted successfully'}); 
 }
 
 const getEventById = async(req, res, next) => {

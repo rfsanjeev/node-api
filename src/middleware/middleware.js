@@ -2,7 +2,7 @@ import eventSchema from '../schemas/event.js';
 import userSchema from '../schemas/user.js';
 import catchAsync from '../utils/catchAsync.js';
 import expressError from '../utils/expressError.js';
-import {createToken, verifyToken} from '../utils/jwt.js';
+import { verifyToken } from '../utils/jwt.js';
 
 const checkJwtToken = catchAsync( async ( req, res, next) => {
     const header = req.headers.authorization;
