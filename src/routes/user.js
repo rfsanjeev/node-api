@@ -1,7 +1,7 @@
 import express from 'express';
-// import { userRegistration, userLogin } from '../controllers/user.js';
-// import logger from '../middleware/logger.js';
-// import catchAsync from '../utils/catchAsync.js';
+import { userRegistration, userLogin } from '../controllers/user.js';
+//import logger from '../middleware/logger.js';
+import catchAsync from '../utils/catchAsync.js';
 import multer from 'multer';
 import { userValidationRules, validate } from '../validation/userValidator.js';
 import { isUserExist } from '../middleware/middleware.js';
