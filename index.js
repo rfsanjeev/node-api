@@ -26,13 +26,6 @@ connectDatabase();
  
 // setup the logger
 //app.use(morgan('combined', {stream: fs.createWriteStream(`${path.join(__dirname, 'logs')}/access.log`, {flags: 'a'})}));
-app.use(
-  morgan("combined", {
-    stream: fs.createWriteStream('./logs/access.log', {
-      flags: "a",
-    }),
-  })
-);
 
 app.use('/event', eventRoute);
 app.use('/user', userRoute);
