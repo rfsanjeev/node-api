@@ -1,12 +1,13 @@
-import saveUserData from '../models/user.js';
+import userSchema from "../schemas/user.js";
+import { addData } from "../models/model.js";
 import expressError from '../utils/expressError.js';
 import { createToken } from '../utils/jwt.js';
 
 const userRegistration = async(req, res, next) => {
         if (req.body.userObject && req.body.userObject.id) {
-            throw new expressError('User alredy exist with this email, please try another!');
+            throw new expressError('User already exist with this email, please try another!');
         } else {
-            await saveUserData(req.body);
+            await addData(userSchema, req.body);
             res.status(201).json({message: 'User created successfully!'});
         }
 }
