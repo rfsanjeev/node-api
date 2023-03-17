@@ -24,13 +24,13 @@ const deleteEvent = async(req, res, next) => {
 const getEventById = async(req, res, next) => {
         const eventData = await getDataById(eventSchema, req.params.id);
 
-        res.status(200).json({date: eventData});
+        res.status(200).json({data: eventData});
 }
 
 const getEvent = async(req, res, next) => {
         const eventData = await getData(eventSchema, req.body.user_id);
 
-        res.status(200).json({date: eventData});
+        res.status(200).json({data: eventData});
 }
 
 export { createEvent, updateEvent, deleteEvent, getEventById, getEvent };
